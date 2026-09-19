@@ -29,19 +29,20 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        working-directory: ./logic-gate-simulator-main/logic-gate-simulator-main
+        working-directory: ./logic-gate-simulator-main
         run: npm install --legacy-peer-deps || true
 
       - name: Build Project
-        working-directory: ./logic-gate-simulator-main/logic-gate-simulator-main
+        working-directory: ./logic-gate-simulator-main
         run: npm run build || true
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './logic-gate-simulator-main/logic-gate-simulator-main/dist'
+          path: './logic-gate-simulator-main/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
